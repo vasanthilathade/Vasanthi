@@ -1,289 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vasanthi Routhu - Sr. Data Engineer Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasanthi Routhu • Senior Data Engineer</title>
+
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --primary: #115f9a;
+      --primary-light: #3b82f6;
+      --accent: #d0f400;
+      --bg: #f5f7fb;
+      --card-bg: #ffffff;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-radius-lg: 14px;
+      --border-radius-md: 10px;
+      --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --shadow-hover: 0 16px 40px rgba(15, 23, 42, 0.15);
+      --max-width: 1120px;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
     }
+
+    a {
+      color: inherit;
+    }
+
+    /* HERO / HEADER */
 
     header {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      background: radial-gradient(circle at top left, #1e3a8a, #0f172a);
       color: white;
-      padding: 60px 20px;
-      text-align: center;
-      border-radius: 0;
+      padding: 72px 20px 56px;
     }
 
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #d0f400;
-    }
-
-    header p {
-      font-size: 1.1em;
-      max-width: 900px;
+    .header-inner {
+      max-width: var(--max-width);
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(280px, 1.1fr);
+      gap: 32px;
+      align-items: center;
     }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 3.1vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .hero-subtitle {
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tag {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #f5ff7c);
+      color: #1a1a1a;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.2);
+      color: white;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: rgba(226, 232, 240, 0.9);
+      display: flex;
+      flex-wrap: wrap;          /* already there – keep it */
+      align-items: center;
+      gap: 8px 16px;            /* slightly tighter horizontal gap */
+      margin-top: 6px;
+      max-width: 640px;         /* NEW: keep row from stretching too wide */
+    }
+
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;        /* NEW: add a bit of padding */
+      border-radius: 999px;     /* NEW: pill shape */
+      background: rgba(15, 23, 42, 0.32);  /* NEW: subtle background */
+    }
+
+
+    .hero-meta a {
+      text-decoration: none;
+      color: rgba(226, 232, 240, 0.95);
+    }
+
+    .hero-right {
+      justify-self: center;
+      max-width: 340px;
+      width: 100%;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top right, #38bdf8, #1d4ed8);
+      border-radius: 18px;
+      padding: 26px 22px 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: -40px;
+      background-image:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.16), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.95), transparent 40%);
+      opacity: 0.7;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(226, 232, 240, 0.9);
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-label i {
+      font-size: 0.85rem;
+    }
+
+    .hero-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-highlight {
+      font-size: 0.86rem;
+      color: rgba(239, 246, 255, 0.95);
+      margin-bottom: 10px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hero-metric {
+      background: rgba(15, 23, 42, 0.32);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #e5f1ff;
+    }
+
+    .hero-metric strong {
+      font-weight: 600;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .hero-pill {
+      font-size: 0.78rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.35);
+      color: #e5f1ff;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: #dbeafe;
+      margin-top: 4px;
+    }
+
+    /* NAV */
 
     nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(148, 163, 184, 0.4);
     }
 
-    nav a {
-      color: #115f9a;
-      text-decoration: none;
-      margin: 0 15px;
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
       font-weight: 600;
-      transition: color 0.3s;
+      color: var(--primary);
+      font-size: 1rem;
+      white-space: nowrap;
     }
 
-    nav a:hover {
-      color: #22a7f0;
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(17, 95, 154, 0.08);
+      color: var(--primary);
+    }
+
+    /* GENERIC SECTIONS */
+
+    main {
+      padding: 32px 20px 60px;
     }
 
     section {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 40px 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: var(--max-width);
+      margin: 0 auto 32px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 24px 30px;
     }
 
-    h2 {
-      color: #115f9a;
-      margin-bottom: 30px;
-      font-size: 2em;
-      text-align: center;
-      border-bottom: 3px solid #115f9a;
-      padding-bottom: 15px;
+    section:last-of-type {
+      margin-bottom: 0;
     }
 
-    .social-buttons-container {
+    .section-header {
       display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 30px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 22px;
     }
 
-    .social-btn {
+    .section-header h2 {
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 820px;
+    }
+
+    /* ABOUT */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 10px;
+      font-size: 0.97rem;
+    }
+
+    .about-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .about-pill {
+      padding: 10px 12px;
+      border-radius: var(--border-radius-md);
+      background: #f3f4ff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #111827;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .social-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    .about-pill i {
+      color: var(--primary);
+      font-size: 0.9rem;
     }
 
-    .social-btn i {
-      font-size: 1.3em;
+    .about-panel {
+      background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+      border-radius: var(--border-radius-md);
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      font-size: 0.9rem;
     }
 
-    .social-btn.email {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+    .about-panel h3 {
+      font-size: 0.95rem;
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .social-btn.phone {
-      background: linear-gradient(135deg, #f093fb, #f5576c);
+    .about-panel ul {
+      padding-left: 18px;
+      margin: 0;
     }
 
-    .social-btn.linkedin {
-      background: linear-gradient(135deg, #0077b5, #005885);
+    .about-panel li {
+      margin-bottom: 4px;
     }
 
-    .social-btn.github {
-      background: linear-gradient(135deg, #333, #555);
-    }
+    /* SOCIAL ROW */
 
-    .social-btn.resume {
-      background: linear-gradient(135deg, #11998e, #38ef7d);
-    }
-
-    .skills, .projects, .certifications, .accelerators {
+    .social-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
     }
 
-    .card {
-      background: #f5f5f5;
-      padding: 25px;
-      border-radius: 10px;
-      width: 320px;
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .social-chip {
+      display: inline-flex;
       align-items: center;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #111827;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    .social-chip i {
+      color: var(--primary);
     }
 
-    .skills .card:nth-child(1) { background: #bbdefb; }
-    .skills .card:nth-child(2) { background: #e1bee7; }
-    .skills .card:nth-child(3) { background: #c8e6c9; }
-    .skills .card:nth-child(4) { background: #ffe0b2; }
-    .skills .card:nth-child(5) { background: #f8bbd0; }
-    .skills .card:nth-child(6) { background: #e6ee9c; }
-    .skills .card:nth-child(7) { background: #b2dfdb; }
-    .skills .card:nth-child(8) { background: #FFA500; }
-    .skills .card:nth-child(9) { background: #7FFFD4; }
+    .social-chip:hover {
+      background: #eef2ff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+    }
 
-    .projects .card:nth-child(1) { background: #cdb4db; }
-    .projects .card:nth-child(2) { background: #bde0fe; }
-    .projects .card:nth-child(3) { background: #74c69d; }
-    .projects .card:nth-child(4) { background: #f8bbd0; }
-    .projects .card:nth-child(5) { background: #e6ee9c; }
-
-    .certifications .card:nth-child(1) { background: #b2dfdb; }
-    .certifications .card:nth-child(2) { background: #ffcc80; }
-    .certifications .card:nth-child(3) { background: #c5cae9; }
-    .certifications .card:nth-child(4) { background: #ef9a9a; }
-    .certifications .card:nth-child(5) { background: #bbdefb; }
+    /* TIMELINE */
 
     .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 600px;
-      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+      margin-top: 4px;
     }
 
     .timeline-item {
-      background: #f0f8ff;
-      padding: 20px;
-      border-left: 4px solid #115f9a;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .timeline-item h3 {
-      color: #115f9a;
-      margin-bottom: 5px;
-    }
-
-    .flip-card {
-      background-color: transparent;
-      width: 320px;
-      height: 220px;
-      perspective: 1000px;
-    }
-
-    .flip-card-inner {
+      border-radius: var(--border-radius-md);
+      padding: 12px 14px 11px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
       position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
     }
 
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front, .flip-card-back {
+    .timeline-item::before {
+      content: '';
+      width: 6px;
+      border-radius: 999px;
       position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
+      left: -1px;
+      top: 10px;
+      bottom: 10px;
+      background: linear-gradient(180deg, var(--primary), var(--primary-light));
+    }
+
+    .role-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .role-company {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .role-meta {
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+
+    /* GRID SECTIONS: SKILLS / PROJECTS / CERTS / ACCELERATORS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .card {
+      background: #f9fafb;
+      border-radius: var(--border-radius-md);
+      padding: 14px 14px 12px;
+      border: 1px solid #e5e7eb;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .card small {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(17, 95, 154, 0.35);
+      background: #ffffff;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #111827;
+    }
+
+    /* ACCELERATOR CARDS */
+
+    .accel-card {
+      cursor: default;
+      background: radial-gradient(circle at top, #dbeafe, #eff6ff);
+      border: 1px solid #c4ddff;
+    }
+
+    .accel-card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .accel-card p {
+      font-size: 0.88rem;
+      color: #1f2937;
+    }
+
+    /* CONTACT */
+
+    #contact .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .contact-item {
+      flex: 1 1 230px;
+      min-width: 0;
+      background: #f9fafb;
+      border-radius: var(--border-radius-md);
+      padding: 12px 14px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1.1em;
-      color: white;
-      text-align: center;
-      padding: 20px;
+      gap: 10px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.95rem;
     }
 
-    .flip-card-front {
-      background: linear-gradient(135deg, #48b5c4, #4d9cdc);
+    .contact-item i {
+      color: var(--primary);
+      font-size: 1rem;
     }
 
-    .flip-card-back {
-      background: linear-gradient(135deg, #76c68f, #56ab91);
-      transform: rotateY(180deg);
+    .contact-item a {
+      text-decoration: none;
+      color: inherit;
     }
+
+    /* FOOTER */
 
     footer {
-      background: #1e3a8a;
-      color: white;
+      max-width: var(--max-width);
+      margin: 18px auto 24px;
+      padding: 4px 20px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
       text-align: center;
-      padding: 30px;
-      margin-top: 60px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #c9e52f;
-      color: #333;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      font-weight: 600;
-      transition: background 0.3s;
+    #visit-counter {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 4px;
     }
 
-    .btn:hover {
-      background-color: #d0f400;
+    /* RESPONSIVE */
+
+    @media (max-width: 880px) {
+      .header-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .about-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8em;
+    @media (max-width: 520px) {
+      section {
+        padding-inline: 18px;
       }
 
-      nav a {
-        display: block;
-        margin: 8px 0;
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .card {
-        width: 100%;
-      }
-
-      .flip-card {
-        width: 100%;
+      .nav-links {
+        gap: 6px;
       }
     }
   </style>
@@ -291,361 +685,465 @@
 
 <body>
 
-<header>
-  <h1>Vasanthi Routhu</h1>
-  <p>Sr. Data Engineer & Data Analytics Expert | Microsoft Certified | Cloud & Big Data | PySpark, Databricks, Airflow | AWS, Azure, GCP | ETL & Real-Time Data Pipelines</p>
-</header>
+  <!-- HERO -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1 class="hero-title">
+          Vasanthi Routhu
+          <span>Senior Data Engineer</span>
+        </h1>
+        <p class="hero-subtitle">
+          Sr. Data Engineer with 7+ years building secure, scalable, and high‑performing data platforms on AWS, Azure, and GCP—designing complex pipelines, performance‑tuned warehouses, and BI/semantic layers that power real‑time and batch decisions.
+        </p>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#timeline">Timeline</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#accelerators">Accelerators</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!--<section id="about">-->
-<!--  <h2>About Me</h2>-->
-<!--  <p>Senior Data Engineer with 7+ years of experience architecting and optimizing scalable data pipelines using Apache Spark, Airflow, Databricks, and modern cloud platforms such as AWS and Azure. Adept at managing complex healthcare and financial datasets with a strong emphasis on governance, compliance, security, and performance tuning. Proficient in SQL, Scala, PySpark, Snowflake, and modern BI tools, and passionate about transforming data into actionable insights that drive strategic business decisions.</p>-->
-
-<!--  <div class="social-buttons-container">-->
-<!--    <a href="mailto:vasanthilatha.bi@gmail.com" class="social-btn email">-->
-<!--      <i class="fas fa-envelope"></i> Email-->
-<!--    </a>-->
-<!--    <a href="tel:+19494242466" class="social-btn phone">-->
-<!--      <i class="fas fa-phone"></i> Call-->
-<!--    </a>-->
-<!--    <a href="https://www.linkedin.com/in/vasanthirouthu/" target="_blank" class="social-btn linkedin">-->
-<!--      <i class="fab fa-linkedin"></i> LinkedIn-->
-<!--    </a>-->
-<!--    <a href="https://github.com/vasanthilathade/vasanthi-data-scripts.git" target="_blank" class="social-btn github">-->
-<!--      <i class="fab fa-github"></i> GitHub-->
-<!--    </a>-->
-<!--    <a href="assets/vasanthi_routhu_resume.pdf" target="_blank" class="social-btn resume">-->
-<!--      <i class="fas fa-file-pdf"></i> Resume-->
-<!--    </a>-->
-<!--  </div>-->
-<!--</section>-->
-<!--<section id="about" style="padding: 80px 20px; background-color: #f0f4ff; position: relative; overflow: hidden;">-->
-<section id="about" style="padding: 40px 20px; margin: 0 auto; background-color: #f0f4ff; position: relative; overflow: hidden;">
-  <!-- Background Image -->
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1581091215364-9e08dbba91f2?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-    opacity: 0.1;
-    z-index: 0;
-  "></div>
-
-  <h2 style="text-align: center; color: #115f9a; margin-bottom: 40px; position: relative; z-index: 1;">About Me</h2>
-
-  <!-- Description -->
-  <p style="max-width: 900px; margin: 0 auto 60px auto; text-align: center; font-size: 1.1em; position: relative; z-index: 1; color: #333;">
-    Senior Data Engineer with 7+ years of experience architecting and optimizing scalable data pipelines using Apache Spark, Airflow, Databricks, and modern cloud platforms such as AWS and Azure. Adept at managing complex healthcare and financial datasets with a strong emphasis on governance, compliance, security, and performance tuning. Proficient in SQL, Scala, PySpark, Snowflake, and modern BI tools, and passionate about transforming data into actionable insights that drive strategic business decisions.
-  </p>
-
-  <!-- Expertise Boxes -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; position: relative; z-index: 1; margin-bottom: 50px;">
-    <div class="about-card" style="
-      flex: 1 1 250px; max-width: 250px; background: white; padding: 30px 20px; border-radius: 15px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-      <h3 style="color: #115f9a; margin-bottom: 15px;">Data Engineering</h3>
-    </div>
-
-    <div class="about-card" style="
-      flex: 1 1 250px; max-width: 250px; background: white; padding: 30px 20px; border-radius: 15px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-      <h3 style="color: #115f9a; margin-bottom: 15px;">Data Analytics</h3>
-    </div>
-
-    <div class="about-card" style="
-      flex: 1 1 250px; max-width: 250px; background: white; padding: 30px 20px; border-radius: 15px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-      <h3 style="color: #115f9a; margin-bottom: 15px;">Data Architecture</h3>
-    </div>
-  </div>
-
-  <!-- Social Buttons -->
-  <div class="social-buttons-container" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; position: relative; z-index: 1;">
-    <a href="mailto:vasanthilatha.bi@gmail.com" class="social-btn email" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; background: linear-gradient(135deg, #667eea, #764ba2); box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s, box-shadow 0.3s;">
-      <i class="fas fa-envelope"></i> Email
-    </a>
-    <a href="tel:+19494242466" class="social-btn phone" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; background: linear-gradient(135deg, #f093fb, #f5576c); box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s, box-shadow 0.3s;">
-      <i class="fas fa-phone"></i> Call
-    </a>
-    <a href="https://www.linkedin.com/in/vasanthirouthu/" target="_blank" class="social-btn linkedin" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; background: linear-gradient(135deg, #0077b5, #005885); box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s, box-shadow 0.3s;">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-    <a href="https://github.com/vasanthilathade" target="_blank" class="social-btn github"
-       style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; background: linear-gradient(135deg, #333, #555); box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s, box-shadow 0.3s; z-index: 2;">
-       <i class="fab fa-github"></i> GitHub
-    </a>
-    <a href="assets/vasanthi_routhu_resume.pdf" target="_blank" class="social-btn resume" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; background: linear-gradient(135deg, #11998e, #38ef7d); box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s, box-shadow 0.3s;">
-      <i class="fas fa-file-pdf"></i> Resume
-    </a>
-  </div>
-</section>
-
-<style>
-  .about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  }
-
-  @media (max-width: 900px) {
-    .about-card { flex: 1 1 45%; }
-  }
-
-  @media (max-width: 600px) {
-    .about-card { flex: 1 1 100%; }
-  }
-</style>
-
-<!---->
-<section id="timeline">
-  <h2>Professional Timeline</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Senior Data Engineer</h3>
-      <p><strong>GoodRx</strong> · Full-time</p>
-      <p>Feb 2024 - Present</p>
-    </div>
-    <div class="timeline-item">
-      <h3>Data Engineer</h3>
-      <p><strong>Cision</strong> · Full-time</p>
-      <p>Aug 2021 - Aug 2022</p>
-    </div>
-    <div class="timeline-item">
-      <h3>Data Engineer</h3>
-      <p><strong>Itron, Inc.</strong> · Full-time</p>
-      <p>Dec 2017 - Jul 2021</p>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills">
-    <div class="card"><strong>Cloud Platforms</strong><br>AWS, Azure, GCP</div>
-    <div class="card"><strong>Big Data & Compute</strong><br>Apache Spark, Databricks, PySpark, Scala</div>
-    <div class="card"><strong>Data Warehousing</strong><br>Snowflake, SQL Server</div>
-    <div class="card"><strong>ETL & Orchestration</strong><br>Airflow, Azure Data Factory</div>
-    <div class="card"><strong>BI & Analytics</strong><br>Power BI, Tableau</div>
-    <div class="card"><strong>Programming & SQL</strong><br>Python, SQL, Transact-SQL</div>
-    <div class="card"><strong>Domains</strong><br>Healthcare, Financial Data</div>
-    <div class="card"><strong>Data Governance</strong><br>Data Quality, Monitoring</div>
-    <div class="card"><strong>Collaboration</strong><br>Stakeholder Engagement</div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Key Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>Real-Time Healthcare Pipelines</h3>
-      <p>
-        Designed and implemented real-time data pipelines with Spark and Airflow
-        to process healthcare events, improving data freshness and clinical
-        reporting SLAs.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Cloud Data Platform Modernization</h3>
-      <p>
-        Migrated legacy ETL and reporting workloads to Databricks and Snowflake
-        on AWS/Azure, reducing processing time and simplifying governance.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Data Quality & Governance Framework</h3>
-      <p>
-        Built an automated data quality framework with rules, alerts, and
-        dashboards to monitor critical financial datasets and reduce incident
-        volume.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Self-Service Analytics Enablement</h3>
-      <p>
-        Delivered curated semantic layers and BI models that enabled business
-        teams to build trusted reports independently.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Cost-Optimized Batch Pipelines</h3>
-      <p>
-        Optimized large-scale batch jobs in Spark and Snowflake through
-        partitioning, caching, and resource tuning to reduce compute cost.
-      </p>
-    </div>
-  </div>
-</section>
-<section id="certifications">
-  <h2>Certifications</h2>
-  <div class="certifications">
-    <div class="card">
-      <strong>DP-200: Implementing an Azure Data Solution</strong><br>
-      Microsoft Certified
-    </div>
-
-    <div class="card">
-      <strong>Microsoft Certified: Azure Data Engineer Associate</strong><br>
-      Azure data solutions and engineering
-    </div>
-
-    <div class="card">
-      <strong>Querying Data with Transact-SQL</strong><br>
-      Expertise in T-SQL and relational databases
-    </div>
-
-    <div class="card">
-      <strong>Visual Analytics with Tableau</strong><br>
-      Advanced data visualization and dashboarding
-    </div>
-
-    <div class="card">
-      <strong>Power BI / Data Analytics</strong><br>
-      Microsoft analytics and reporting
-    </div>
-  </div>
-</section>
-<section id="accelerators">
-  <h2>Accelerators</h2>
-  <div class="accelerators">
-
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          Data Quality Accelerator
+        <div class="hero-tags">
+          <span class="hero-tag">Apache Spark • Databricks</span>
+          <span class="hero-tag">Airflow • Orchestration</span>
+          <span class="hero-tag">AWS · Azure · GCP</span>
+          <span class="hero-tag">Redshift • Delta Lake</span>
+          <span class="hero-tag">Power BI • SSAS Tabular</span>
+          <span class="hero-tag">Governance & Automation</span>
         </div>
-        <div class="flip-card-back">
-          Framework to define, execute, and monitor data quality rules across
-          pipelines, improving trust and reducing manual checks.
+
+        <div class="hero-actions">
+          <a href="assets/vasanthi_routhu_resume.pdf" target="_blank" class="btn-primary">
+            <i class="fas fa-file-arrow-down"></i>
+            Download Resume
+          </a>
+          <a href="#projects" class="btn-ghost">
+            <i class="fas fa-diagram-project"></i>
+            View Selected Work
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i class="fas fa-location-dot"></i> Austin, TX · Open to relocate</span>
+          <span><i class="fas fa-envelope"></i> <a href="mailto:vasanthilatha.bi@gmail.com">vasanthilatha.bi@gmail.com</a></span>
+          <span><i class="fas fa-phone"></i> <a href="tel:+1949424242466">(949) 424‑2466</a></span>
+          <span><i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/vasanthirouthu/" target="_blank">LinkedIn</a>
+          </span>
+          <span><i class="fab fa-github"></i>
+            <a href="https://github.com/vasanthilathade" target="_blank">GitHub</a>
+          </span>
         </div>
       </div>
-    </div>
 
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          Pipeline Observability Toolkit
+      <aside class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-label">
+              <i class="fas fa-chart-network"></i>
+              Snapshot
+            </div>
+            <h2>Cloud‑native data & BI platforms</h2>
+            <p class="hero-highlight">
+              Architecting end‑to‑end ETL/ELT, lakehouse, and streaming pipelines plus tuned warehouses and semantic models for high‑trust reporting.
+            </p>
+
+            <div class="hero-metrics">
+              <div class="hero-metric">
+                <i class="fas fa-clock"></i>
+                <strong>7+ yrs</strong> data engineering
+              </div>
+              <div class="hero-metric">
+                <i class="fas fa-cloud"></i>
+                <strong>Multi‑cloud</strong> AWS · Azure · GCP
+              </div>
+            </div>
+
+            <div class="hero-pill-row">
+              <span class="hero-pill">Airflow • Databricks • Spark</span>
+              <span class="hero-pill">Redshift • Snowflake • Delta Lake</span>
+              <span class="hero-pill">SSIS • ADF • Automation</span>
+              <span class="hero-pill">Power BI • SSAS • Tabular</span>
+            </div>
+
+            <div class="hero-location">
+              <i class="fas fa-briefcase"></i>
+              Sr Data Engineer · GoodRx
+            </div>
+          </div>
         </div>
-        <div class="flip-card-back">
-          Dashboards and alerting patterns for Airflow and Spark jobs to track
-          SLAs, failures, and performance trends.
-        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">VR · Data Engineering</div>
+      <div class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#timeline">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#accelerators">Accelerators</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
+  </nav>
 
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          Cost Optimization Playbook
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header">
+        <h2>About</h2>
+        <span class="section-kicker">What I bring</span>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            Senior Data Engineer with 7+ years of experience designing and operating secure, scalable data platforms across AWS, Azure, and GCP, with a strong focus on automation, reliability, and performance tuning.
+          </p>
+          <p>
+            Experienced in architecting end‑to‑end ETL/ELT pipelines, Redshift and Snowflake warehouses, Delta Lakehouse patterns, and BI semantic layers using SSAS/Tabular and Power BI to support real‑time and batch analytics for healthcare, capital markets, and enterprise reporting.
+          </p>
+          <p>
+            Enjoys mentoring, code reviews, and collaborating closely with product, analytics, and business teams to turn ambiguous problems into measurable outcomes and trustworthy dashboards.
+          </p>
+
+          <div class="about-list">
+            <div class="about-pill">
+              <i class="fas fa-layer-group"></i>
+              End‑to‑end data & streaming pipelines
+            </div>
+            <div class="about-pill">
+              <i class="fas fa-gauge-high"></i>
+              Warehouse & query performance tuning
+            </div>
+            <div class="about-pill">
+              <i class="fas fa-cubes"></i>
+              SSAS tabular & semantic models
+            </div>
+            <div class="about-pill">
+              <i class="fas fa-chart-line"></i>
+              Executive & self‑service reporting
+            </div>
+          </div>
+
+          <div class="social-row">
+            <a href="mailto:vasanthilatha.bi@gmail.com" class="social-chip">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="tel:+1949424242466" class="social-chip">
+              <i class="fas fa-phone"></i> Call
+            </a>
+            <a href="https://www.linkedin.com/in/vasanthirouthu/" target="_blank" class="social-chip">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/vasanthilathade" target="_blank" class="social-chip">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
         </div>
-        <div class="flip-card-back">
-          Guidelines and scripts to right-size compute, optimize storage, and
-          reduce costs across Snowflake and Databricks workloads.
+
+        <aside class="about-panel">
+          <h3>
+            <i class="fas fa-star"></i>
+            How I work
+          </h3>
+          <ul>
+            <li>Design for reliability first (clear SLAs, monitoring, and rollback paths) and then optimize for performance and cost.</li>
+            <li>Favor metadata‑driven patterns and reusable components so new pipelines can be delivered quickly and consistently.</li>
+            <li>Keep BI models and reporting close to the business, using SSAS/Tabular and Power BI to encode shared metrics and logic.</li>
+            <li>Collaborate in small Agile squads, using DevOps practices and CI/CD to keep changes safe and frequent.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+      <div class="section-header">
+        <h2>Experience</h2>
+        <span class="section-kicker">Recent roles</span>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="role-title">Sr Data Engineer</div>
+          <div class="role-company">GoodRx · Remote, US</div>
+          <div class="role-meta">Feb 2024 – Present</div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="role-title">Sr Data Engineer</div>
+          <div class="role-company">Cision · Hyderabad, India</div>
+          <div class="role-meta">Aug 2021 – Aug 2022</div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="role-title">Data Engineer</div>
+          <div class="role-company">Itron, Inc. · Hyderabad, India</div>
+          <div class="role-meta">Dec 2017 – Jul 2021</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-header">
+        <h2>Skills</h2>
+        <span class="section-kicker">What I work with</span>
+      </div>
+
+      <p class="section-intro">
+        Technologies used to design pipelines, optimize warehouses, and deliver governed analytics at scale.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Cloud Platforms</h3>
+          <p>AWS, Azure, GCP</p>
+          <small>S3, Redshift, Glue, Lambda, ADF, Databricks, Synapse.</small>
+        </div>
+        <div class="card">
+          <h3>Big Data & Compute</h3>
+          <p>Apache Spark, Databricks, Delta Lake</p>
+          <small>Batch/streaming, lakehouse architectures.</small>
+        </div>
+        <div class="card">
+          <h3>Data Warehousing</h3>
+          <p>Redshift, Snowflake, SQL Server</p>
+          <small>Modeling, tuning, and cost optimization.</small>
+        </div>
+        <div class="card">
+          <h3>Orchestration & ETL</h3>
+          <p>Airflow, ADF, SSIS</p>
+          <small>Metadata‑driven frameworks and automations.</small>
+        </div>
+        <div class="card">
+          <h3>BI & Semantic Models</h3>
+          <p>Power BI, SSAS, Tabular, Paginated</p>
+          <small>Row‑level security and executive reporting.</small>
+        </div>
+        <div class="card">
+          <h3>Programming & SQL</h3>
+          <p>Python, T‑SQL, PowerShell</p>
+          <small>Data transformations and DevOps tooling.</small>
+        </div>
+        <div class="card">
+          <h3>Governance & Security</h3>
+          <p>Azure Purview, RBAC, Key Vault</p>
+          <small>Catalog, lineage, and access controls.</small>
+        </div>
+        <div class="card">
+          <h3>Practices</h3>
+          <p>CI/CD, Agile, Observability</p>
+          <small>Code reviews, monitoring, and incident response.</small>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-<section id="contact"
-  style="
-    background: linear-gradient(135deg, #f5faff, #e8f0ff);
-    border-radius: 14px;
-    padding: 40px 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  "
->
-  <h2 style="margin-bottom: 30px;">Contact</h2>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header">
+        <h2>Selected Projects</h2>
+        <span class="section-kicker">Impact in practice</span>
+      </div>
 
-  <div
-    style="
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    "
-  >
-    <!-- Email -->
-    <div
-      style="
-        background: #ffffff;
-        padding: 18px 25px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.1em;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      "
-    >
-      <i class="fas fa-envelope" style="color: #115f9a; font-size: 1.3em;"></i>
-      <a href="mailto:vasanthilatha.bi@gmail.com" style="text-decoration: none; color: #37474F;">
-        vasanthilatha.bi@gmail.com
-      </a>
-    </div>
+      <p class="section-intro">
+        Case‑style highlights where data engineering, automation, and BI directly improved uptime, performance, and business decision‑making.
+      </p>
 
-    <!-- Phone -->
-    <div
-      style="
-        background: #ffffff;
-        padding: 18px 25px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.1em;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      "
-    >
-      <i class="fas fa-phone" style="color: #115f9a; font-size: 1.3em;"></i>
-      <span style="color: #37474F;">+1-949-424-2466</span>
-    </div>
+      <div class="grid">
+        <article class="card">
+          <h3>High‑Volume Airflow & Databricks Pipelines</h3>
+          <p>
+            Designed and maintained critical ETL pipelines with Airflow, PySpark, and Databricks moving 10+ TB/day from SFTP and Kafka into S3 and Redshift, achieving 99.9% uptime and reducing manual operations by 90%.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Airflow</span>
+            <span class="pill">Databricks</span>
+            <span class="pill">Redshift</span>
+          </div>
+        </article>
 
-    <!-- Resume -->
-    <div
-      style="
-        background: #ffffff;
-        padding: 18px 25px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.1em;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      "
-    >
-      <i class="fas fa-file-alt" style="color: #115f9a; font-size: 1.3em;"></i>
-      <a
-      href="assets/vasanthi_routhu_resume.pdf"
-      target="_blank"
-      style="text-decoration: none; color: #37474F;"
-    >
-      View Resume
-    </a>
-    </div>
-  </div>
+        <article class="card">
+          <h3>Redshift & Warehouse Performance Tuning</h3>
+          <p>
+            Re‑architected Redshift schemas and queries (sort keys, distribution styles, WLM tuning) and introduced best practices that cut query latency by up to 60% while supporting new analytics and ML workloads.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Redshift</span>
+            <span class="pill">Query tuning</span>
+            <span class="pill">Cost optimization</span>
+          </div>
+        </article>
 
-  <p
-    style="
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #666;
-      text-align: center;
-    "
-  >
-    © 2025 Vasanthi Routhu. All Rights Reserved.
-  </p>
-</section>
+        <article class="card">
+          <h3>Metadata‑Driven Ingestion Framework</h3>
+          <p>
+            Built a metadata‑driven ingestion framework in ADF and Databricks that dynamically creates tables, ingests new datasets, and manages schema evolution, saving 20+ hours per week of manual engineering work.
+          </p>
+          <div class="pill-row">
+            <span class="pill">ADF</span>
+            <span class="pill">Automation</span>
+            <span class="pill">Frameworks</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>SSAS/Tabular Semantic Layer for Power BI</h3>
+          <p>
+            Designed SSAS/Tabular models and semantic layers that centralize measures and business logic for Power BI, with row‑level security supporting 75+ users in financial and operational reporting.
+          </p>
+          <div class="pill-row">
+            <span class="pill">SSAS</span>
+            <span class="pill">Tabular</span>
+            <span class="pill">Power BI</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Paginated & Executive Reporting Automations</h3>
+          <p>
+            Replaced manual Excel‑based reconciliation and reporting with Power BI and Paginated Reports, reducing manual effort by up to 80% and improving data accuracy through centralized aggregation and validation.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Paginated reports</span>
+            <span class="pill">Financials</span>
+            <span class="pill">Automation</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Governed Data for Regulated Domains</h3>
+          <p>
+            Applied governance practices with Azure Purview, RBAC, and Key Vault to catalog assets, manage lineage, and enforce access controls for sensitive financial and healthcare data across platforms.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Purview</span>
+            <span class="pill">RBAC</span>
+            <span class="pill">Governance</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="section-header">
+        <h2>Certifications</h2>
+        <span class="section-kicker">Validated skills</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>DP‑200: Implementing an Azure Data Solution</h3>
+          <p>Microsoft</p>
+          <small>Designing and implementing Azure data pipelines.</small>
+        </div>
+        <div class="card">
+          <h3>DP‑201: Designing an Azure Data Solution</h3>
+          <p>Microsoft</p>
+          <small>Architecting secure, scalable data platforms.</small>
+        </div>
+        <div class="card">
+          <h3>70‑761: Querying Data with Transact‑SQL</h3>
+          <p>Microsoft</p>
+          <small>Advanced T‑SQL and performance tuning.</small>
+        </div>
+        <div class="card">
+          <h3>70‑778: Analyzing & Visualizing Data with Power BI</h3>
+          <p>Microsoft</p>
+          <small>Enterprise reporting and dashboard design.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCELERATORS -->
+    <section id="accelerators">
+      <div class="section-header">
+        <h2>Accelerators</h2>
+        <span class="section-kicker">Reusable assets</span>
+      </div>
+
+      <p class="section-intro">
+        Reusable frameworks and patterns designed to improve quality, observability, and delivery speed across teams.
+      </p>
+
+      <div class="grid">
+        <article class="card accel-card">
+          <div class="accel-card-title">Metadata‑Driven Pipeline Framework</div>
+          <p>
+            Template for building parameterized ETL/ELT pipelines with configuration‑driven ingestion, logging, and error handling that can be reused across domains.
+          </p>
+        </article>
+
+        <article class="card accel-card">
+          <div class="accel-card-title">Warehouse Tuning Playbook</div>
+          <p>
+            Guidelines and checks for Redshift/Snowflake design, including distribution, partitioning, and query review to systematically improve performance.
+          </p>
+        </article>
+
+        <article class="card accel-card">
+          <div class="accel-card-title">BI & Semantic Modeling Guide</div>
+          <p>
+            Patterns for building SSAS/Tabular models, shared datasets, and Power BI workspaces with security, governance, and reuse in mind.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <span class="section-kicker">Let’s connect</span>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:vasanthilatha.bi@gmail.com">vasanthilatha.bi@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+1‑949‑424‑2466</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/vasanthirouthu/" target="_blank">LinkedIn Profile</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/vasanthilathade" target="_blank">GitHub Profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Vasanthi Routhu. All rights reserved.
+    <div id="visit-counter">Visits from this browser: loading…</div>
+  </footer>
+
+  <!-- Visit counter (per browser, using localStorage) -->
+  <script>
+    (function () {
+      const KEY = 'vr_portfolio_visit_count';
+      let count = localStorage.getItem(KEY);
+
+      if (!count) {
+        count = 1;
+      } else {
+        count = parseInt(count, 10) + 1;
+      }
+
+      localStorage.setItem(KEY, count);
+
+      const el = document.getElementById('visit-counter');
+      if (el) {
+        el.textContent = 'Visits from this browser: ' + count;
+      }
+    })();
+  </script>
+</body>
+</html>
